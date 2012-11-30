@@ -38,7 +38,7 @@ SCRIPT_VERSION = 1
 
 
 def build_commands(commands):
-    commands.add("install-nrpe", install_nrpe, help="Installs NRPE daemon and nagios plugins for monitoring by remote server.")
+    commands.add("install-nrpe-client", install_nrpe, help="Installs NRPE daemon and nagios plugins for monitoring by remote server.")
 
 
 def install_nrpe(args):
