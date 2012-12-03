@@ -43,9 +43,13 @@ def install_nmap(args):
     version_obj = version.Version("InstallNMAP", SCRIPT_VERSION)
     version_obj.check_executed()
 
-    subnet = config.general.get_subnet()
-    if not subnet:
-        raise('Need to put network.subnet in install.cfg')
+
+    subnet = net.get_network_address(config.general.get_back_gateway_ip(self), 
+      config.general.get_back_netmask())
+
+    #subnet = config.general.get_subnet()
+    #if not subnet:
+    #    raise('Need to put network.subnet in install.cfg')
 
     # Install the nmap packages.
     if os.path.exists('/usr/bin/nmap'):
